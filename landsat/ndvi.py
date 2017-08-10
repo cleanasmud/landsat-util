@@ -13,7 +13,7 @@ from .image import BaseProcess
 class NDVI(BaseProcess):
 
     def __init__(self, path, bands=None, **kwargs):
-        bands = [4, 5]
+        bands = bands #[4, 5]
         self._read_cmap()
         super(NDVI, self).__init__(path, bands, **kwargs)
 
