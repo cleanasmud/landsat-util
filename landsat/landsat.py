@@ -463,10 +463,9 @@ def process_image(path, bands=None, verbose=False, pansharpen=False, ndvi=False,
             p = PanSharpen(path, bands=bands, dst_path=settings.PROCESSED_IMAGE,
                            verbose=verbose, force_unzip=force_unzip, bounds=bounds)
         elif ndvigrey:
-            #### Added in bands option to allow band numbers to be changed to accomodate Landsat 4/5/7
             p = NDVI(path, bands=bands, verbose=verbose, dst_path=settings.PROCESSED_IMAGE, force_unzip=force_unzip, bounds=bounds)
         elif ndvi:
-            p = NDVIWithManualColorMap(path, dst_path=settings.PROCESSED_IMAGE,
+            p = NDVIWithManualColorMap(path, bands=bands, dst_path=settings.PROCESSED_IMAGE,
                                        verbose=verbose, force_unzip=force_unzip, bounds=bounds)
         else:
             p = Simple(path, bands=bands, dst_path=settings.PROCESSED_IMAGE, verbose=verbose, force_unzip=force_unzip,
